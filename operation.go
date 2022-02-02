@@ -40,7 +40,7 @@ func (o Operation) MarshalJSON() ([]byte, error) {
 	switch o.Type {
 	case OperationCopy, OperationMove:
 		o.Value = nil
-	case OperationAdd, OperationReplace, OperationTest:
+	case OperationAdd, OperationTest:
 		o.From = emptyPtr
 	}
 	return json.Marshal(op(o))

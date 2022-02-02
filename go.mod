@@ -1,3 +1,3 @@
-module github.com/wI2L/jsondiff
+module github.com/ringsq/jsondiff
 
 go 1.17
