@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/wI2L/jsondiff"
+	"github.com/ringsq/jsondiff"
 )
 
 type (
