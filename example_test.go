@@ -81,7 +81,7 @@ func ExampleCompare() {
 		fmt.Printf("%s\n", op)
 	}
 	// Output:
-	// {"op":"replace","path":"/spec/containers/0/image","value":"nginx:1.19.5-alpine"}
+	// {"op":"replace","from":"nginx:latest","path":"/spec/containers/0/image","value":"nginx:1.19.5-alpine"}
 	// {"op":"remove","path":"/spec/volumes/0/emptyDir/medium"}
 }
 
@@ -122,7 +122,7 @@ func ExampleCompareJSON() {
 		fmt.Printf("%s\n", op)
 	}
 	// Output:
-	// {"op":"replace","path":"/age","value":30}
+	// {"op":"replace","from":"25","path":"/age","value":30}
 	// {"op":"add","path":"/phoneNumbers/-","value":{"number":"209-212-0015","type":"mobile"}}
 }
 
@@ -143,7 +143,7 @@ func ExampleInvertible() {
 	}
 	// Output:
 	// {"op":"test","path":"/a","value":"1"}
-	// {"op":"replace","path":"/a","value":"3"}
+	// {"op":"replace","from":"1","path":"/a","value":"3"}
 	// {"op":"test","path":"/b","value":"2"}
 	// {"op":"remove","path":"/b"}
 	// {"op":"add","path":"/c","value":"4"}

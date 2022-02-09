@@ -2,6 +2,7 @@ package jsondiff
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
 
@@ -42,6 +43,8 @@ func (o Operation) MarshalJSON() ([]byte, error) {
 		o.Value = nil
 	case OperationAdd, OperationTest:
 		o.From = emptyPtr
+	case OperationReplace:
+		o.From = pointer(fmt.Sprintf("%v", o.OldValue))
 	}
 	return json.Marshal(op(o))
 }
