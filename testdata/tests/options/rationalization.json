@@ -43,20 +43,17 @@
     "name": "lots of small changes vs one bigger replace (array)",
     "before": {
         "a": [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-            "add some length to this so it should not be replaced because repeating all this is more expensive than the overhead from the operations"
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10
         ]
     },
     "after": {
         "a": [
-            11, 12, 13, 14, 5, 6, 7, 8, 9, 10,
-            "add some length to this so it should not be replaced because repeating all this is more expensive than the overhead from the operations"
+            11, 12, 13, 14, 5, 6, 7, 8, 9, 10
         ]
     },
     "patch": [
-        { "op": "replace", "path": "/a/0", "value": 11 },
-        { "op": "replace", "path": "/a/1", "value": 12 },
-        { "op": "replace", "path": "/a/2", "value": 13 },
-        { "op": "replace", "path": "/a/3", "value": 14 }
+        { "op": "replace", "path": "/a", "value": [
+            11, 12, 13, 14, 5, 6, 7, 8, 9, 10
+        ]}
     ]
 }]
