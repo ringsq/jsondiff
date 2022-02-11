@@ -21,7 +21,7 @@ type Operation struct {
 	Type     string      `json:"op"`
 	From     pointer     `json:"from,omitempty"`
 	Path     pointer     `json:"path"`
-	OldValue interface{} `json:"-"`
+	OldValue interface{} `json:"oldValue,omitempty"`
 	Value    interface{} `json:"value,omitempty"`
 }
 
@@ -40,8 +40,12 @@ func (o Operation) MarshalJSON() ([]byte, error) {
 	switch o.Type {
 	case OperationCopy, OperationMove:
 		o.Value = nil
+		o.OldValue = nil
 	case OperationAdd, OperationTest:
 		o.From = emptyPtr
+		o.OldValue = nil
+	case OperationRemove:
+		o.OldValue = nil
 	}
 	return json.Marshal(op(o))
 }
